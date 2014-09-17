@@ -34,6 +34,7 @@ struct BarMethods * Bar = & __BarMethods;
 void Bar_Init( void )
 {
     __BarMethods.parent = *( Foo );
+    __BarMethods.New    = Bar_New;
     __BarMethods.GetZ   = Bar_GetZ;
 }
 

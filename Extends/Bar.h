@@ -40,7 +40,8 @@ struct BarMethods
 {
     struct FooMethods parent;
     
-    int ( * GetZ )( BarRef o );
+    BarRef ( * New )( int x, int y, int z );
+    int    ( * GetZ )( BarRef o );
 };
 
 extern struct BarMethods * Bar;

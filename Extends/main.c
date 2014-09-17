@@ -34,8 +34,8 @@ int main( void )
     Foo_Init();
     Bar_Init();
     
-    foo = Foo_New( 42, 27 );
-    bar = Bar_New( 42, 27, 256 );
+    foo = Foo->New( 42, 27 );
+    bar = Bar->New( 42, 27, 256 );
     
     printf( "Foo X: %i\n", Foo->GetX( foo ) );
     printf( "Foo Y: %i\n", Foo->GetY( foo ) );

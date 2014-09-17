@@ -33,6 +33,7 @@ struct FooMethods * Foo = & __FooMethods;
 
 void Foo_Init( void )
 {
+    __FooMethods.New  = Foo_New;
     __FooMethods.GetX = Foo_GetX;
     __FooMethods.GetY = Foo_GetY;
     __FooMethods.SetX = Foo_SetX;

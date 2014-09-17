@@ -30,10 +30,11 @@ typedef struct __Foo * FooRef;
 
 struct FooMethods
 {
-    int  ( * GetX )( FooRef o );
-    int  ( * GetY )( FooRef o );
-    void ( * SetX )( FooRef o, int x );
-    void ( * SetY )( FooRef o, int y );
+    FooRef ( * New )( int x, int y );
+    int    ( * GetX )( FooRef o );
+    int    ( * GetY )( FooRef o );
+    void   ( * SetX )( FooRef o, int x );
+    void   ( * SetY )( FooRef o, int y );
 };
 
 struct FooVariables
