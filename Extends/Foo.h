@@ -43,7 +43,7 @@ struct FooVariables
     int y;
 };
 
-extern struct FooMethods * Foo;
+extern struct FooMethods Foo;
 
 void   Foo_Init( void );
 FooRef Foo_New( int x, int y );

@@ -27,17 +27,15 @@
 #include "Extends.h"
 #include "__Foo.h"
 
-static struct FooMethods __FooMethods;
-
-struct FooMethods * Foo = & __FooMethods;
+struct FooMethods Foo;
 
 void Foo_Init( void )
 {
-    __FooMethods.New  = Foo_New;
-    __FooMethods.GetX = Foo_GetX;
-    __FooMethods.GetY = Foo_GetY;
-    __FooMethods.SetX = Foo_SetX;
-    __FooMethods.SetY = Foo_SetY;
+    Foo.New  = Foo_New;
+    Foo.GetX = Foo_GetX;
+    Foo.GetY = Foo_GetY;
+    Foo.SetX = Foo_SetX;
+    Foo.SetY = Foo_SetY;
 }
 
 FooRef Foo_New( int x, int y )
@@ -64,7 +62,7 @@ void Foo_Construct( FooRef o, int x, int y )
         return;
     }
     
-    memcpy( o->_vtable, Foo, sizeof( struct FooMethods ) );
+    memcpy( o->_vtable, &Foo, sizeof( struct FooMethods ) );
     
     o->_ivars->x = x;
     o->_ivars->y = y;

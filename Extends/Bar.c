@@ -27,15 +27,13 @@
 #include "Extends.h"
 #include "__Bar.h"
 
-static struct BarMethods __BarMethods;
-
-struct BarMethods * Bar = & __BarMethods;
+struct BarMethods Bar;
 
 void Bar_Init( void )
 {
-    __BarMethods.parent = *( Foo );
-    __BarMethods.New    = Bar_New;
-    __BarMethods.GetZ   = Bar_GetZ;
+    Bar.parent = Foo;
+    Bar.New    = Bar_New;
+    Bar.GetZ   = Bar_GetZ;
 }
 
 BarRef Bar_New( int x, int y, int z )
@@ -64,7 +62,7 @@ void Bar_Construct( BarRef o, int x, int y, int z )
     
     Foo_Construct( ( FooRef )o, x, y );
     
-    memcpy( o->_vtable, Bar, sizeof( struct BarMethods ) );
+    memcpy( o->_vtable, &Bar, sizeof( struct BarMethods ) );
     
     o->_vtable->parent.GetY = ( int ( * )( FooRef ) )Bar_GetY;
     o->_vtable->parent.SetX = ( void ( * )( FooRef, int ) )Bar_SetX;
@@ -75,7 +73,7 @@ int Bar_GetY( BarRef o )
 {
     ( void )o;
     
-    return -1;
+    return Foo.GetY( ( FooRef )o ) + 1;
 }
 
 int Bar_GetZ( BarRef o )

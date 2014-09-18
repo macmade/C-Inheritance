@@ -44,7 +44,7 @@ struct BarMethods
     int    ( * GetZ )( BarRef o );
 };
 
-extern struct BarMethods * Bar;
+extern struct BarMethods Bar;
 
 void   Bar_Init( void );
 BarRef Bar_New( int x, int y, int z );

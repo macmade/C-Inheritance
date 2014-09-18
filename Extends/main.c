@@ -34,25 +34,25 @@ int main( void )
     Foo_Init();
     Bar_Init();
     
-    foo = Foo->New( 42, 27 );
-    bar = Bar->New( 42, 27, 256 );
+    foo = Foo.New( 42, 27 );
+    bar = Bar.New( 42, 27, 256 );
     
-    printf( "Foo X: %i\n", Foo->GetX( foo ) );
-    printf( "Foo Y: %i\n", Foo->GetY( foo ) );
-    printf( "Bar X: %i\n", Foo->GetX( ( FooRef )bar ) );
-    printf( "Bar Y: %i\n", Foo->GetY( ( FooRef )bar ) );
-    printf( "Bar Z: %i\n", Bar->GetZ( bar ) );
+    printf( "Foo X: %i\n", Foo.GetX( foo ) );
+    printf( "Foo Y: %i\n", Foo.GetY( foo ) );
+    printf( "Bar X: %i\n", Foo.GetX( ( FooRef )bar ) );
+    printf( "Bar Y: %i\n", Foo.GetY( ( FooRef )bar ) );
+    printf( "Bar Z: %i\n", Bar.GetZ( bar ) );
     
-    Foo->SetX( foo, 0 );
-    Foo->SetY( foo, 0 );
-    Foo->SetX( ( FooRef )bar, 0 );
-    Foo->SetY( ( FooRef )bar, 0 );
+    Foo.SetX( foo, 0 );
+    Foo.SetY( foo, 0 );
+    Foo.SetX( ( FooRef )bar, 0 );
+    Foo.SetY( ( FooRef )bar, 0 );
     
-    printf( "Foo X: %i\n", Foo->GetX( foo ) );
-    printf( "Foo Y: %i\n", Foo->GetY( foo ) );
-    printf( "Bar X: %i\n", Foo->GetX( ( FooRef )bar ) );
-    printf( "Bar Y: %i\n", Foo->GetY( ( FooRef )bar ) );
-    printf( "Bar Z: %i\n", Bar->GetZ( bar ) );
+    printf( "Foo X: %i\n", Foo.GetX( foo ) );
+    printf( "Foo Y: %i\n", Foo.GetY( foo ) );
+    printf( "Bar X: %i\n", Foo.GetX( ( FooRef )bar ) );
+    printf( "Bar Y: %i\n", Foo.GetY( ( FooRef )bar ) );
+    printf( "Bar Z: %i\n", Bar.GetZ( bar ) );
     
     return 0;
 }
