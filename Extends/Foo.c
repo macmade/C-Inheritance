@@ -77,7 +77,15 @@ int Foo_GetX( FooRef o )
     
     if( o->_vtable->GetX != Foo_GetX )
     {
-        return o->_vtable->GetX( o );
+        int r;
+        int ( * f )( FooRef );
+        
+        f                = o->_vtable->GetX;
+        o->_vtable->GetX = Foo_GetX;
+        r                = f( o );
+        o->_vtable->GetX = f;
+        
+        return r;
     }
     
     return o->_ivars->x;
@@ -92,7 +100,15 @@ int Foo_GetY( FooRef o )
     
     if( o->_vtable->GetY != Foo_GetY )
     {
-        return o->_vtable->GetY( o );
+        int r;
+        int ( * f )( FooRef );
+        
+        f                = o->_vtable->GetY;
+        o->_vtable->GetY = Foo_GetY;
+        r                = f( o );
+        o->_vtable->GetY = f;
+        
+        return r;
     }
     
     return o->_ivars->y;
@@ -107,7 +123,14 @@ void Foo_SetX( FooRef o, int x )
     
     if( o->_vtable->SetX != Foo_SetX )
     {
-        o->_vtable->SetX( o, x );
+        void ( * f )( FooRef, int );
+        
+        f                = o->_vtable->SetX;
+        o->_vtable->SetX = Foo_SetX;
+        
+        f( o, x );
+        
+        o->_vtable->SetX = f;
         
         return;
     }
@@ -124,7 +147,14 @@ void Foo_SetY( FooRef o, int y )
     
     if( o->_vtable->SetY != Foo_SetY )
     {
-        o->_vtable->SetY( o, y );
+        void ( * f )( FooRef, int );
+        
+        f                = o->_vtable->SetY;
+        o->_vtable->SetX = Foo_SetY;
+        
+        f( o, y );
+        
+        o->_vtable->SetY = f;
         
         return;
     }
