@@ -2,6 +2,10 @@ C-Inheritance
 =============
 
 [![Build Status](https://img.shields.io/travis/macmade/C-Inheritance.svg?branch=master&style=flat)](https://travis-ci.org/macmade/C-Inheritance)
+[![Issues](http://img.shields.io/github/issues/macmade/C-Inheritance.svg?style=flat)](https://github.com/macmade/C-Inheritance/issues)
+![Status](https://img.shields.io/badge/status-inactive-lightgray.svg?style=flat)
+![License](https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat)
+[![Contact](https://img.shields.io/badge/contact-@macmade-blue.svg?style=flat)](https://twitter.com/macmade)
 
 About
 -----
